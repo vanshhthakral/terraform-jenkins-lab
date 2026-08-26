@@ -1,0 +1,22 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
+
+# SSH/private keys
+*.pem
+*.key
+
+# macOS
+.DS_Store
+
+# Jenkins/local files
+tfplan
+tfplan.txt
+tfsec-report.xml
