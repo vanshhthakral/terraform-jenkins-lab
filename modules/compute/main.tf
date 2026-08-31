@@ -20,13 +20,13 @@ resource "aws_instance" "web" {
   key_name                    = var.key_name
   associate_public_ip_address = true
   metadata_options {
-  http_endpoint = "enabled"
-  http_tokens   = "required"
-}
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 
-root_block_device {
-  encrypted = true
-}
+  root_block_device {
+    encrypted = true
+  }
 
   user_data = <<-EOF
               #!/bin/bash
@@ -52,11 +52,11 @@ resource "aws_instance" "db" {
     Name = "advanced-iac-db"
   }
   metadata_options {
-  http_endpoint = "enabled"
-  http_tokens   = "required"
-}
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 
-root_block_device {
-  encrypted = true
-}
+  root_block_device {
+    encrypted = true
+  }
 }
