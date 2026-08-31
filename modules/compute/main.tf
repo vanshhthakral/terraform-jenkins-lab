@@ -19,6 +19,14 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = [var.web_sg_id]
   key_name                    = var.key_name
   associate_public_ip_address = true
+  metadata_options {
+  http_endpoint = "enabled"
+  http_tokens   = "required"
+}
+
+root_block_device {
+  encrypted = true
+}
 
   user_data = <<-EOF
               #!/bin/bash
@@ -43,4 +51,12 @@ resource "aws_instance" "db" {
   tags = {
     Name = "advanced-iac-db"
   }
+  metadata_options {
+  http_endpoint = "enabled"
+  http_tokens   = "required"
+}
+
+root_block_device {
+  encrypted = true
+}
 }
